@@ -6,13 +6,19 @@ php:
   - 5.6
   - hhvm
 
+before_install:
+  - sudo pip install codecov
+
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
 
 script:
   - ./vendor/bin/phpcs --standard=psr1 ./src
-  - ./vendor/bin/phpunit
+  - ./vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - codecov
 
 matrix:
   allow_failures:
