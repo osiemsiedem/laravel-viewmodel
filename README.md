@@ -1,9 +1,10 @@
 ## ViewModel
 
 [![Build Status](https://travis-ci.org/osiemsiedem/viewmodel.svg)](https://travis-ci.org/osiemsiedem/viewmodel)
-[![Latest Stable Version](https://poser.pugx.org/osiemsiedem/viewmodel/v/stable.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
-[![Total Downloads](https://poser.pugx.org/osiemsiedem/viewmodel/downloads.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
-[![License](https://poser.pugx.org/osiemsiedem/viewmodel/license.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
+[![Latest Stable Version](https://img.shields.io/packagist/v/osiemsiedem/viewmodel.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
+[![Code Coverage](https://img.shields.io/codecov/c/github/osiemsiedem/viewmodel.svg)](https://codecov.io/github/osiemsiedem/viewmodel)
+[![Total Downloads](https://img.shields.io/packagist/dt/osiemsiedem/viewmodel.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
+[![License](https://img.shields.io/packagist/l/osiemsiedem/viewmodel.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
 
 ViewModel is a small and simple implementation of a class-based views for the [Laravel Framework](http://laravel.com/).
 
