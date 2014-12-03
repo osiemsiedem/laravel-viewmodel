@@ -4,14 +4,6 @@ use OsiemSiedem\View\ViewModel;
 
 class ViewModelTest extends PHPUnit_Framework_TestCase {
 
-	/**
-	 * @covers  ViewModel::has
-	 * @covers  ViewModel::get
-	 * @covers  ViewModel::set
-	 * @covers  ViewModel::forget
-	 * @covers  ViewModel::toArray
-	 * @covers  ViewModel::toJson
-	 */
 	public function testViewModelGettersSetters()
 	{
 		$viewmodel = $this->getViewModel();
@@ -23,6 +15,10 @@ class ViewModelTest extends PHPUnit_Framework_TestCase {
 		// toJson()
 		$this->assertInstanceOf('Illuminate\Contracts\Support\Jsonable', $viewmodel);
 		$this->assertEquals($viewmodel->toJson(), '{"foo":"bar","bar":"foo"}');
+
+		// jsonSerialize()
+		$this->assertInstanceOf('JsonSerializable', $viewmodel);
+		$this->assertEquals($viewmodel->jsonSerialize(), ['foo' => 'bar', 'bar' => 'foo']);
 
 		// has()
 		$this->assertTrue($viewmodel->has('foo'));
@@ -49,12 +45,6 @@ class ViewModelTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($viewmodel->get('xyz'), null);
 	}
 
-	/**
-	 * @covers  ViewModel::offsetExists
-	 * @covers  ViewModel::offsetGet
-	 * @covers  ViewModel::offsetSet
-	 * @covers  ViewModel::offsetUnset
-	 */
 	public function testViewModelArrayAccess()
 	{
 		$viewmodel = $this->getViewModel();
@@ -74,12 +64,6 @@ class ViewModelTest extends PHPUnit_Framework_TestCase {
 		$this->assertFalse($viewmodel->offsetExists('foo'));
 	}
 
-	/**
-	 * @covers  ViewModel::__isset
-	 * @covers  ViewModel::__get
-	 * @covers  ViewModel::__toString
-	 * @covers  ViewModel::__construct
-	 */
 	public function testViewModelMagicMethods()
 	{
 		$viewmodel = $this->getViewModel();
