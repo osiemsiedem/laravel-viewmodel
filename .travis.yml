@@ -4,6 +4,7 @@ php:
   - 5.4
   - 5.5
   - 5.6
+  - 7
   - hhvm
 
 before_install:
@@ -14,7 +15,7 @@ before_script:
   - composer install --prefer-source --no-interaction --dev
 
 script:
-  - ./vendor/bin/phpcs --standard=psr1 ./src
+  - ./vendor/bin/phpcs --standard=psr2 ./src
   - ./vendor/bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
