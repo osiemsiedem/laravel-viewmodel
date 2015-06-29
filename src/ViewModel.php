@@ -72,7 +72,7 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
 
 		foreach ($methods as $method)
 		{
-			if ($method->class !== __CLASS__)
+			if ($method->class !== __CLASS__ && substr($method->name, 0, 2) !== '__')
 			{
 				$data[$method->name] = $this->{$method->name}();
 			}
