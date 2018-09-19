@@ -1,12 +1,12 @@
 {
-    "name": "osiemsiedem/viewmodel",
+    "name": "osiemsiedem/laravel-viewmodel",
     "description": "Simple class-based views for Laravel.",
     "keywords": ["laravel", "view", "model"],
     "license": "MIT",
     "authors": [
         {
             "name": "Marek Szymczuk",
-            "email": "marek.szymczuk@gmail.com",
+            "email": "marek@osiemsiedem.com",
             "homepage": "http://osiemsiedem.com"
         }
     ],
