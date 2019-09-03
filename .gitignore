@@ -1,2 +1,5 @@
-/vendor/*
+vendor/
 composer.lock
+coverage.xml
+phpunit.xml
+.phpunit.result.cache

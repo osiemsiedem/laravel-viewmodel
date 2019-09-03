@@ -1,9 +1,13 @@
-<?php namespace OsiemSiedem\View;
+<?php
+
+declare(strict_types=1);
+
+namespace OsiemSiedem\View;
 
 use ArrayAccess;
 use JsonSerializable;
-use ReflectionObject;
 use ReflectionMethod;
+use ReflectionObject;
 use ReflectionProperty;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
@@ -14,6 +18,7 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
      * Create a new ViewModel instance.
      *
      * @param  array  $data
+     * @return void
      */
     public function __construct(array $data = [])
     {
@@ -23,14 +28,14 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Convert the model instance to an array.
      *
-     * @return  array
+     * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $reflection = new ReflectionObject($this);
 
         $properties = $this->propertiesToArray($reflection);
-        $methods    = $this->methodsToArray($reflection);
+        $methods = $this->methodsToArray($reflection);
 
         return array_merge($properties, $methods);
     }
@@ -38,10 +43,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Convert all the public properties to an array.
      *
-     * @param   ReflectionObject  $reflection
-     * @return  array
+     * @param  \ReflectionObject  $reflection
+     * @return array
      */
-    protected function propertiesToArray(ReflectionObject $reflection)
+    protected function propertiesToArray(ReflectionObject $reflection): array
     {
         $properties = $reflection->getProperties(ReflectionProperty::IS_PUBLIC);
 
@@ -59,10 +64,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Convert all the public methods to an array.
      *
-     * @param   ReflectionObject  $reflection
-     * @return  array
+     * @param  \ReflectionObject  $reflection
+     * @return array
      */
-    protected function methodsToArray(ReflectionObject $reflection)
+    protected function methodsToArray(ReflectionObject $reflection): array
     {
         $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
 
@@ -80,10 +85,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Convert the model instance to JSON.
      *
-     * @param   int  $options
-     * @return  string
+     * @param  int  $options
+     * @return string
      */
-    public function toJson($options = 0)
+    public function toJson($options = 0): string
     {
         return json_encode($this->toArray(), $options);
     }
@@ -91,9 +96,9 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Convert the model into something JSON serializable.
      *
-     * @return  array
+     * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }
@@ -101,10 +106,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Determine if the given attribute exists.
      *
-     * @param   string  $key
-     * @return  bool
+     * @param  string  $key
+     * @return bool
      */
-    public function has($key)
+    public function has(string $key): bool
     {
         return ($this->hasAccessibleMethod($key) || $this->hasAccessibleProperty($key));
     }
@@ -112,10 +117,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Determine if the given method is public.
      *
-     * @param   string  $key
-     * @return  bool
+     * @param  string  $key
+     * @return bool
      */
-    protected function hasAccessibleMethod($key)
+    protected function hasAccessibleMethod(string $key): bool
     {
         if (method_exists($this, $key)) {
             $reflection = new ReflectionMethod($this, $key);
@@ -129,10 +134,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Determine if the given property is public.
      *
-     * @param   string  $key
-     * @return  bool
+     * @param  string  $key
+     * @return bool
      */
-    protected function hasAccessibleProperty($key)
+    protected function hasAccessibleProperty(string $key): bool
     {
         if (isset($this->$key)) {
             $reflection = new ReflectionProperty($this, $key);
@@ -146,17 +151,17 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Get an attribute from the model.
      *
-     * @param   string  $key
-     * @return  mixed
+     * @param  string  $key
+     * @return mixed
      */
-    public function get($key, $default = null)
+    public function get(string $key, $default = null)
     {
         if ($this->hasAccessibleMethod($key)) {
             return $this->$key();
         }
 
         if ($this->hasAccessibleProperty($key)) {
-            return $this->$key;
+            return $this->{$key};
         }
 
         return $default;
@@ -165,18 +170,18 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Set a given attribute on the model.
      *
-     * @param   mixed  $key
-     * @param   mixed  $value
-     * @return  $this
+     * @param  array|string  $key
+     * @param  mixed  $value
+     * @return $this
      */
-    public function set($key, $value = null)
+    public function set($key, $value = null): self
     {
         if (is_array($key)) {
             foreach ($key as $k => $v) {
-                $this->$k = $v;
+                $this->{$k} = $v;
             }
         } else {
-            $this->$key = $value;
+            $this->{$key} = $value;
         }
 
         return $this;
@@ -185,12 +190,12 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Remove an attribute from the model.
      *
-     * @param   mixed  $key
-     * @return  $this
+     * @param  string  $key
+     * @return $this
      */
-    public function forget($key)
+    public function forget(string $key): self
     {
-        unset($this->$key);
+        unset($this->{$key});
 
         return $this;
     }
@@ -198,10 +203,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Determine if the given offset exists.
      *
-     * @param   string  $offset
-     * @return  bool
+     * @param  string  $offset
+     * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $this->has($offset);
     }
@@ -209,8 +214,8 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Get the value for a given offset.
      *
-     * @param   string  $offset
-     * @return  mixed
+     * @param  string  $offset
+     * @return mixed
      */
     public function offsetGet($offset)
     {
@@ -220,11 +225,11 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Set the value at the given offset.
      *
-     * @param   string  $offset
-     * @param   mixed   $value
-     * @return  void
+     * @param  string  $offset
+     * @param  mixed   $value
+     * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->set($offset, $value);
     }
@@ -232,10 +237,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Unset the value at the given offset.
      *
-     * @param   string  $offset
-     * @return  void
+     * @param  string  $offset
+     * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         $this->forget($offset);
     }
@@ -243,9 +248,9 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Convert the model to its string representation.
      *
-     * @return  string
+     * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->toJson();
     }
@@ -253,10 +258,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Determine if the given attribute exists.
      *
-     * @param   string  $key
-     * @return  void
+     * @param  string  $key
+     * @return bool
      */
-    public function __isset($key)
+    public function __isset(string $key): bool
     {
         return $this->has($key);
     }
@@ -264,10 +269,10 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
     /**
      * Dynamically retrieve attributes on the model.
      *
-     * @param   string  $key
-     * @return  mixed
+     * @param  string  $key
+     * @return mixed
      */
-    public function __get($key)
+    public function __get(string $key)
     {
         return $this->get($key);
     }

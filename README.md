@@ -1,21 +1,31 @@
-## ViewModel
+## Laravel ViewModel
 
-[![Build Status](https://travis-ci.org/osiemsiedem/viewmodel.svg)](https://travis-ci.org/osiemsiedem/viewmodel)
-[![Latest Stable Version](https://img.shields.io/packagist/v/osiemsiedem/viewmodel.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
-[![Code Coverage](https://img.shields.io/codecov/c/github/osiemsiedem/viewmodel.svg)](https://codecov.io/github/osiemsiedem/viewmodel)
-[![Total Downloads](https://img.shields.io/packagist/dt/osiemsiedem/viewmodel.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
-[![License](https://img.shields.io/packagist/l/osiemsiedem/viewmodel.svg)](https://packagist.org/packages/osiemsiedem/viewmodel)
+[![Build Status](https://travis-ci.org/osiemsiedem/laravel-viewmodel.svg)](https://travis-ci.org/osiemsiedem/viewmodel) [![Latest Stable Version](https://img.shields.io/packagist/v/osiemsiedem/laravel-viewmodel.svg)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel) [![License](https://img.shields.io/packagist/l/osiemsiedem/laravel-viewmodel.svg)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel)
 
-ViewModel is a small and simple implementation of a class-based views for the [Laravel Framework](http://laravel.com/).
+A small and simple implementation of a class-based views for the [Laravel](http://laravel.com/).
 
 ### Requirements
 
-ViewModel requires PHP 5.4+ and Laravel 5.0+.
+- PHP >= 7.2
+- Laravel 6.0
 
-### Usage
+## Installation
 
-For general usage, see [example](https://github.com/osiemsiedem/viewmodel-example) application.
+```
+composer require osiemsiedem/laravel-viewmodel
+```
 
-### License
+## Testing
 
-ViewModel is licensed under the [MIT license](http://opensource.org/licenses/MIT).
+```
+./vendor/bin/phpunit
+```
+
+## Credits
+
+- [Marek Szymczuk](https://github.com/bonzai)
+- [All Contributors](../../contributors)
+
+## License
+
+Please see the [LICENSE.md](LICENSE.md) file.

@@ -6,22 +6,24 @@
     "authors": [
         {
             "name": "Marek Szymczuk",
-            "email": "marek@osiemsiedem.com",
-            "homepage": "http://osiemsiedem.com"
+            "email": "marek@osiemsiedem.com"
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/contracts": "~5.0"
+        "php": "^7.2",
+        "illuminate/contracts": "^6.0"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "1.*",
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "OsiemSiedem\\View\\": "src"
+            "OsiemSiedem\\View\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "autoload-dev": {
+        "psr-4": {
+            "OsiemSiedem\\Tests\\View\\": "tests/"
+        }
+    }
 }

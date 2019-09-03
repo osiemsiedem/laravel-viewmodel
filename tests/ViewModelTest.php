@@ -1,10 +1,15 @@
 <?php
 
-use OsiemSiedem\View\ViewModel;
+declare(strict_types=1);
 
-class ViewModelTest extends PHPUnit_Framework_TestCase
+namespace OsiemSiedem\Tests\View;
+
+use OsiemSiedem\View\ViewModel;
+use PHPUnit\Framework\TestCase;
+
+class ViewModelTest extends TestCase
 {
-    public function testViewModelGettersSetters()
+    public function testViewModelGettersSetters(): void
     {
         $viewmodel = $this->getViewModel();
 
@@ -45,7 +50,7 @@ class ViewModelTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($viewmodel->get('xyz'), null);
     }
 
-    public function testViewModelArrayAccess()
+    public function testViewModelArrayAccess(): void
     {
         $viewmodel = $this->getViewModel();
 
@@ -64,7 +69,7 @@ class ViewModelTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($viewmodel->offsetExists('foo'));
     }
 
-    public function testViewModelMagicMethods()
+    public function testViewModelMagicMethods(): void
     {
         $viewmodel = $this->getViewModel();
 
