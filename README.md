@@ -1,10 +1,10 @@
 ## Laravel ViewModel
 
-[![Build Status](https://travis-ci.org/osiemsiedem/laravel-viewmodel.svg)](https://travis-ci.org/osiemsiedem/viewmodel) [![Latest Stable Version](https://img.shields.io/packagist/v/osiemsiedem/laravel-viewmodel.svg)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel) [![License](https://img.shields.io/packagist/l/osiemsiedem/laravel-viewmodel.svg)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel)
+[![Build Status](https://travis-ci.org/osiemsiedem/laravel-viewmodel.svg)](https://travis-ci.org/osiemsiedem/laravel-viewmodel) [![Latest Stable Version](https://poser.pugx.org/osiemsiedem/laravel-viewmodel/v/stable)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel) [![License](https://poser.pugx.org/osiemsiedem/laravel-viewmodel/license)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel)
 
-A small and simple implementation of a class-based views for the [Laravel](http://laravel.com/).
+A small and simple implementation of a class-based views for Laravel.
 
-### Requirements
+## Requirements
 
 - PHP >= 7.2
 - Laravel 6.0
