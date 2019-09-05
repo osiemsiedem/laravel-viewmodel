@@ -1,4 +1,4 @@
-## Laravel ViewModel
+# Laravel ViewModel
 
 [![Build Status](https://travis-ci.org/osiemsiedem/laravel-viewmodel.svg)](https://travis-ci.org/osiemsiedem/laravel-viewmodel) [![Latest Stable Version](https://poser.pugx.org/osiemsiedem/laravel-viewmodel/v/stable)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel) [![License](https://poser.pugx.org/osiemsiedem/laravel-viewmodel/license)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel)
 
