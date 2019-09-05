@@ -111,7 +111,7 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
      */
     public function has(string $key): bool
     {
-        return ($this->hasAccessibleMethod($key) || $this->hasAccessibleProperty($key));
+        return $this->hasAccessibleMethod($key) || $this->hasAccessibleProperty($key);
     }
 
     /**
