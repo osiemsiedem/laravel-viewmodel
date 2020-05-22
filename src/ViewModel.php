@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace OsiemSiedem\View;
 
 use ArrayAccess;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 use JsonSerializable;
 use ReflectionMethod;
 use ReflectionObject;
 use ReflectionProperty;
-use Illuminate\Contracts\Support\Jsonable;
-use Illuminate\Contracts\Support\Arrayable;
 
 abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
 {
