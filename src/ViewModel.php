@@ -226,7 +226,7 @@ abstract class ViewModel implements ArrayAccess, Arrayable, Jsonable, JsonSerial
      * Set the value at the given offset.
      *
      * @param  string  $offset
-     * @param  mixed   $value
+     * @param  mixed  $value
      * @return void
      */
     public function offsetSet($offset, $value): void
