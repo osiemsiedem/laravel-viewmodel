@@ -6,8 +6,8 @@ A small and simple implementation of a class-based views for Laravel.
 
 ## Requirements
 
-- PHP >= 7.3
-- Laravel 8.0
+- PHP >= 8.0
+- Laravel 9.0
 
 ## Installation
 
