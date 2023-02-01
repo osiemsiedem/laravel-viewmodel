@@ -1,4 +1,4 @@
-# Laravel ViewModel
+# ViewModel for Laravel
 
 [![GitHub Actions Status](https://github.com/osiemsiedem/laravel-viewmodel/workflows/Tests/badge.svg)](https://github.com/osiemsiedem/laravel-viewmodel) [![Latest Stable Version](https://poser.pugx.org/osiemsiedem/laravel-viewmodel/v/stable)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel) [![License](https://poser.pugx.org/osiemsiedem/laravel-viewmodel/license)](https://packagist.org/packages/osiemsiedem/laravel-viewmodel)
 
